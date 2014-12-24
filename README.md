@@ -1,4 +1,4 @@
 Mi AMPA
 ========================
 
-AdministraciÃ³n de intercambio de libros para colegios.
+Administración de intercambio de libros para colegios.
