@@ -1,0 +1,3 @@
+mi_ampa_homepage:
+    path:     /
+    defaults: { _controller: MiAmpaBundle:Default:index }

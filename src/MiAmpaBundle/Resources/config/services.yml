@@ -1,0 +1,4 @@
+services:
+#    mi_ampa.example:
+#        class: MiAmpaBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
