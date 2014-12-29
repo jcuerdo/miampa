@@ -1,0 +1,30 @@
+ampa:
+    path:     /
+    defaults: { _controller: "MiAmpaBundle:Ampa:index" }
+
+ampa_show:
+    path:     /{id}/show
+    defaults: { _controller: "MiAmpaBundle:Ampa:show" }
+
+ampa_new:
+    path:     /new
+    defaults: { _controller: "MiAmpaBundle:Ampa:new" }
+
+ampa_create:
+    path:     /create
+    defaults: { _controller: "MiAmpaBundle:Ampa:create" }
+    requirements: { _method: post }
+
+ampa_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MiAmpaBundle:Ampa:edit" }
+
+ampa_update:
+    path:     /{id}/update
+    defaults: { _controller: "MiAmpaBundle:Ampa:update" }
+    requirements: { _method: post|put }
+
+ampa_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MiAmpaBundle:Ampa:delete" }
+    requirements: { _method: post|delete }

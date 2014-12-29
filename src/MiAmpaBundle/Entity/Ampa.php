@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Ampa
 {
@@ -49,6 +50,15 @@ class Ampa
      */
     private $mail;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
+
+
     /**
      * @var string
      *
@@ -56,6 +66,28 @@ class Ampa
      */
     private $logo;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * @var array
+     *
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="ampas")
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -181,4 +213,81 @@ class Ampa
     {
         return $this->logo;
     }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Ampa
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $password
+     * @return Ampa
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     *
+     * @ORM\PreUpdate
+     * @ORM\PrePersist
+     */
+     public function preProccessDataa()
+     {
+        $this->setSlug($this->slugify($this->getName()));
+        $this->setPassword(md5($this->getPassword()));
+     }
+
+     /**
+      * Sluglify method
+      */
+     private function slugify($string)
+     {
+
+        return str_replace(' ', '-', strtolower($string));
+     }
+
+     public function getUsers()
+     {
+         return $this->users;
+     }
+     
+     public function setUsers($users)
+     {
+         $this->users = $users;
+         return $this;
+     }
 }
