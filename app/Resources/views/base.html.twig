@@ -5,9 +5,118 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/miampa/css/bootstrap.css') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                <div class="container-fluid">
+                  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="brand" href="/">miampa.com</a>
+                  <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">     
+                    </p>
+                    <ul class="nav">
+                      <li><a href="/">Inicio</a></li>
+                    </ul>
+                  </div><!--/.nav-collapse -->
+                </div>
+              </div>
+            </div>
+
+            <div id="myCarousel" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="{{ asset('bundles/miampa/images/header.jpg') }}" alt=""/>
+                  <div class="container">
+                    <div class="carousel-caption">
+                      <h1>Comparte libros y material escolar <a class="btn btn-primary btn-large" href="/ampa/nuevo">Registro Gratuito</a> </h1>
+                      <p class="lead">Con <em>MiAMPA</em> la AMPA de su colegio puede administrar de forma sencilla la reutilización de libros de texto y material <strong>SIN COSTES</strong></p>
+              
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row-fluid">
+                        <div class="span12">
+                  <div class="row-fluid">
+        <!-- AddToAny BEGIN -->
+        <div class="a2a_kit a2a_default_style">
+        <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=www.miampa.com&amp;linkname=MiAmpa">Compartir</a>
+        <span class="a2a_divider"></span>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_email"></a>
+        </div>
+        <script type="text/javascript">
+        var a2a_config = a2a_config || {};
+        a2a_config.linkname = "MiAmpa";
+        a2a_config.linkurl = "www.miampa.com";
+        a2a_config.locale = "es";
+        </script>
+        <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
+                
+                {% block body %}{% endblock %}
+                {% block javascripts %}{% endblock %}
+
+                  </div><!--/row-->
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="container marketing">
+            <div class="row">
+                <div class="span3">
+                  <img src="{{asset('bundles/miampa/images/intercambiarlibros.png')}}">
+                 <h2>Intercambio de libros</h2>
+                  <p>Con MiAMPA podrás administrar el intercambio de libros entre escolares, <strong class="important">sin costes</strong>.</p>
+                </div><!-- /.span4 -->
+                <div class="span3">
+                  <img src="{{asset('bundles/miampa/images/intercambiar.png')}}">
+                  <h2>Intercambio de material escolar</h2>
+                  <p>Con MiAMPA podrás administrar el intercambio de material de segunda mano entre escolares, <strong class="important">sin costes</strong>.</p>
+          
+                </div><!-- /.span4 -->
+                <div class="span3">
+                  <img src="{{asset('bundles/miampa/images/video.png')}}">
+                  <h2>¿Cómo funciona?</h2>
+                  <p>Video explicativo de como funciona MiAMPA</p>
+                  <p><a class="btn btn-primary btn-large" href="/ampa/como-funciona">Ver Video »</a></p>
+                </div><!-- /.span4 -->
+                <div class="span3">
+                  <img width="120" src="{{asset('bundles/miampa/images/alta.png')}}">
+                  <h2>Registrarme <strong>GRATIS</strong></h2>
+                  <p>Crear mi cuenta completamente gratis ¡¡¡</p>
+                  <p><a class="btn btn-primary btn-large" href="/ampa/nuevo">Registro »</a></p>
+                </div><!-- /.span4 -->
+              </div>
+              <center>
+              <h2>Video</h2><iframe width="533" height="300" src="//www.youtube-nocookie.com/embed/96JS4qPcewg?rel=0" frameborder="0" allowfullscreen></iframe>
+            </center>
+
+        </div>
+
+              <hr>
+
+              <footer>
+                <p>&copy; MiAmpa 2013</p>
+                <p>Comparte libros y material escolar en tu colegio sin costes con  <a href="/ampa/como-funciona">MiAMPA.</a>  <a href="/ampa/colegios-que-usan-miampa">Colegios que usan MiAMPA</a> </p>
+
+                                <p class="contact">
+
+                            <a accesskey="o" href="/ampa/contacto">Contacto</a>
+                            <a accesskey="g" href="/ampa/legal">Aviso Legal</a>
+                            <a accesskey="b" href="/ampa/accesibilidad/">Accesibilidad</a>
+
+                        </p>
+              </footer>
+
+            </div><!--/.fluid-container-->
     </body>
 </html>

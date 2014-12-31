@@ -19,7 +19,6 @@ class AmpaType extends AbstractType
             ->add('address')
             ->add('phone')
             ->add('mail')
-            ->add('logo')
             ->add('password')
         ;
     }

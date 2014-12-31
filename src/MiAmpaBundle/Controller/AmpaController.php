@@ -109,6 +109,28 @@ class AmpaController extends Controller
         ));
     }
 
+        /**
+     * Finds and displays a Ampa entity.
+     *
+     */
+    public function showActionBySlug($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MiAmpaBundle:Ampa')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Ampa entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('MiAmpaBundle:Ampa:show.html.twig', array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
     /**
      * Displays a form to edit an existing Ampa entity.
      *

@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  * AccessRequest
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="MiAmpaBundle\Entity\AccessRequestRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class AccessRequest
