@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Ampa</h1>
+    <h1>Item</h1>
 
     <table class="record_properties">
         <tbody>
@@ -14,43 +14,35 @@
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Address</th>
-                <td>{{ entity.address }}</td>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
             </tr>
             <tr>
-                <th>Phone</th>
-                <td>{{ entity.phone }}</td>
+                <th>Points</th>
+                <td>{{ entity.points }}</td>
             </tr>
             <tr>
-                <th>Mail</th>
-                <td>{{ entity.mail }}</td>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
             </tr>
             <tr>
-                <th>Logo</th>
-                <td>{{ entity.logo }}</td>
-            </tr>
-            <tr>
-                <th>Public Url</th>
-                <td><a href="{{ url('ampa_show_slug', {'slug': entity.slug}) }}">
-{{ url('ampa_show_slug', {'slug': entity.slug}) }}
-</a></td>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('ampa') }}">
+        <a href="{{ path('item', {'slug' : app.request.get('slug')}) }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('ampa_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('item_edit', { 'id': entity.id, 'slug' : app.request.get('slug') }) }}">
             Edit
         </a>
     </li>
-    {% if delete_form is defined %}
     <li>{{ form(delete_form) }}</li>
-    {% endif %}
 </ul>
 {% endblock %}

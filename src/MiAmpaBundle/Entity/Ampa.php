@@ -83,11 +83,19 @@ class Ampa
     private $users;
 
     /**
+     * @var array
+     *
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="ampas")
+     */
+    private $items;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -314,5 +322,39 @@ class Ampa
     public function removeUser(\MiAmpaBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
+    }
+
+    public function getItems()
+     {
+         return $this->items;
+     }
+     
+     public function setItems($items)
+     {
+         $this->items = $items;
+         return $this;
+     }
+
+    /**
+     * Add item
+     *
+     * @param \MiAmpaBundle\Entity\Item $item
+     * @return Ampa
+     */
+    public function addItem(\MiAmpaBundle\Entity\Item $item)
+    {
+        $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Remove items
+     *
+     * @param \MiAmpaBundle\Entity\Item $item
+     */
+    public function removeItem(\MiAmpaBundle\Entity\Item $item)
+    {
+        $this->items->removeElement($item);
     }
 }

@@ -38,13 +38,13 @@ class ItemMessage
 
 
     /**
-     * @ORM\OneToOne(targetEntity="Item")
+     * @ORM\ManyToOne(targetEntity="Item", inversedBy="messages")
      *
      */
     private $item;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages")
      *
      */
     private $user;

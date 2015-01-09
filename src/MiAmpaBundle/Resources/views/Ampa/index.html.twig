@@ -12,7 +12,7 @@
                 <th>Phone</th>
                 <th>Mail</th>
                 <th>Logo</th>
-                <th>Slug</th>
+                <th>Public URL</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,7 +25,9 @@
                 <td>{{ entity.phone }}</td>
                 <td>{{ entity.mail }}</td>
                 <td>{{ entity.logo }}</td>
-                <td>{{ entity.slug }}</td>
+                <td><a href="{{ url('ampa_show_slug', {'slug': entity.slug}) }}">
+{{ url('ampa_show_slug', {'slug': entity.slug}) }}
+</a></td>
                 <td>
                 <ul>
                     <li>

@@ -109,6 +109,19 @@ class AmpaController extends Controller
         ));
     }
 
+    public function showBySlugAction($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ampa = $em->getRepository('MiAmpaBundle:Ampa')->findAmpaBySlug($slug);
+
+        if(is_null($ampa))
+            throw $this->createNotFoundException('Ampa not found');
+        
+        return $this->render('MiAmpaBundle:Ampa:show.html.twig', array(
+            'entity' => $ampa,
+        ));
+    }
+
         /**
      * Finds and displays a Ampa entity.
      *

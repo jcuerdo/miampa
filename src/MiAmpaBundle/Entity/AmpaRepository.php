@@ -12,4 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class AmpaRepository extends EntityRepository
 {
+
+	/**
+	 * Find Ampa by slug
+	 * @param  string $slug Slug.
+	 */
+	public function findAmpaBySlug($slug)
+	{
+    	return $this->getEntityManager()
+    	->createQuery(
+    		'SELECT a from MiAmpaBundle:Ampa a WHERE a.slug=:slug'
+    		)
+    	->setParameter('slug', $slug)
+    	->getSingleResult();
+    }
 }

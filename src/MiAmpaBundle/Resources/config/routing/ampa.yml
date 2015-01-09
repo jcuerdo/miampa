@@ -3,8 +3,14 @@ ampa:
     defaults: { _controller: "MiAmpaBundle:Ampa:index" }
 
 ampa_show:
-    path:     /{id}/show
+    path:     /{id}
     defaults: { _controller: "MiAmpaBundle:Ampa:show" }
+    requirements:
+        id:  \d+
+
+ampa_show_slug:
+    path:     /{slug}
+    defaults: { _controller: "MiAmpaBundle:Ampa:showBySlug" }
 
 ampa_new:
     path:     /new

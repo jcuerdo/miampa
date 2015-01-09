@@ -46,7 +46,7 @@ class Item
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255, options={"default" = "published"})
+     * @ORM\Column(name="status", type="string", length=255, options={"default" = "published"},nullable=true)
      */
     private $status;
 
@@ -57,6 +57,10 @@ class Item
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Ampa", inversedBy="items")
+     */
+    private $ampa;
 
     /**
      * Get id
@@ -183,13 +187,23 @@ class Item
         return $this->date;
     }
 
+    public function getAmpa()
+    {
+        return $this->ampa;
+    }
+    
+    public function setAmpa($ampa)
+    {
+        $this->ampa = $ampa;
+        return $this;
+    }
 
     /**
      *
      * @ORM\PrePersist
      */
-     public function preProccessDataa()
+     public function preProccessData()
      {
-        $this->setDate(time());
+        $this->setDate(new \DateTime());
      }
 }

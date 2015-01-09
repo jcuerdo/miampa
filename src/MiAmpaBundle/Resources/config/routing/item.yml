@@ -1,0 +1,30 @@
+item:
+    path:     /
+    defaults: { _controller: "MiAmpaBundle:Item:index" }
+
+item_show:
+    path:     /{id}/show
+    defaults: { _controller: "MiAmpaBundle:Item:show" }
+
+item_new:
+    path:     /new
+    defaults: { _controller: "MiAmpaBundle:Item:new" }
+
+item_create:
+    path:     /create
+    defaults: { _controller: "MiAmpaBundle:Item:create" }
+    requirements: { _method: post }
+
+item_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MiAmpaBundle:Item:edit" }
+
+item_update:
+    path:     /{id}/update
+    defaults: { _controller: "MiAmpaBundle:Item:update" }
+    requirements: { _method: post|put }
+
+item_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MiAmpaBundle:Item:delete" }
+    requirements: { _method: post|delete }
