@@ -134,6 +134,6 @@ class PrivateMessage
      */
      public function preProccessDataa()
      {
-        $this->setDate(time());
+        $this->setDate(new \DateTime());
      }
 }

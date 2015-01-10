@@ -45,4 +45,45 @@
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
+
+<h1>ItemMessage list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in entity.messages %}
+            <tr>
+                <td><a href="{{ path('item_message_show', { 'message_id': message.id , 'slug': app.request.get('slug') , 'item_id': app.request.get('id') }) }}">{{ message.id }}</a></td>
+                <td>{{ message.message }}</td>
+                <td>{% if message.date %}{{ message.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('item_message_show', { 'message_id': message.id, 'slug': app.request.get('slug') , 'item_id': app.request.get('id') }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('item_message_edit', { 'id': message.id,'slug': app.request.get('slug') , 'item_id': app.request.get('id') }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('item_message_new', { 'slug' : app.request.get('slug'),'item_id' : app.request.get('id') })}}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
 {% endblock %}

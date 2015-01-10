@@ -130,9 +130,9 @@ class AccessRequest
      *
      * @ORM\PrePersist
      */
-     public function preProccessDataa()
+     public function preProccessData()
      {
-        $this->setDate(time());
+        $this->setDate(new \DateTime());
      }
 
 }

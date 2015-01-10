@@ -85,7 +85,7 @@ class Ampa
     /**
      * @var array
      *
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="ampas")
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="ampa")
      */
     private $items;
 

@@ -1,6 +1,10 @@
+mi_ampa_item_message:
+    resource: "@MiAmpaBundle/Resources/config/routing/itemmessage.yml"
+    prefix:   /ampa/{slug}/item/{item_id}/message
+
 mi_ampa_item:
     resource: "@MiAmpaBundle/Resources/config/routing/item.yml"
-    prefix:   /ampa/{slug}/item/
+    prefix:   /ampa/{slug}/item
 
 mi_ampa_ampa:
     resource: "@MiAmpaBundle/Resources/config/routing/ampa.yml"

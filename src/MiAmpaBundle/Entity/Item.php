@@ -63,6 +63,33 @@ class Item
     private $ampa;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     *
+     */
+    private $publisher;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     *
+     */
+    private $buyer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ItemMessage", mappedBy="item")
+     *
+     */
+    private $messages;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -195,6 +222,39 @@ class Item
     public function setAmpa($ampa)
     {
         $this->ampa = $ampa;
+        return $this;
+    }
+
+    public function getPublisher()
+    {
+        return $this->publisher;
+    }
+    
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $publisher;
+        return $this;
+    }
+
+    public function getBuyer()
+    {
+        return $this->buyer;
+    }
+    
+    public function setBuyer($buyer)
+    {
+        $this->buyer = $buyer;
+        return $this;
+    }
+
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+     
+    public function setMessages($messages)
+    {
+        $this->messages = $messages;
         return $this;
     }
 

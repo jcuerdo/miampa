@@ -14,7 +14,6 @@ use MiAmpaBundle\Form\AmpaType;
  */
 class AmpaController extends Controller
 {
-
     /**
      * Lists all Ampa entities.
      *

@@ -1,0 +1,28 @@
+item_message_show:
+    path:     /{message_id}
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:show" }
+    requirements:
+        message_id:	\d+
+
+item_message_new:
+    path:     /new
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:new" }
+
+item_message_create:
+    path:     /create
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:create" }
+    requirements: { _method: post }
+
+item_message_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:edit" }
+
+item_message_update:
+    path:     /{id}/update
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:update" }
+    requirements: { _method: post|put }
+
+item_message_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MiAmpaBundle:ItemMessage:delete" }
+    requirements: { _method: post|delete }

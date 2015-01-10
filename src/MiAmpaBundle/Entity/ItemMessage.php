@@ -36,7 +36,6 @@ class ItemMessage
      */
     private $date;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="Item", inversedBy="messages")
      *
@@ -44,7 +43,7 @@ class ItemMessage
     private $item;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages")
+     * @ORM\ManyToOne(targetEntity="User")
      *
      */
     private $user;
@@ -134,6 +133,6 @@ class ItemMessage
      */
      public function preProccessDataa()
      {
-        $this->setDate(time());
+        $this->setDate(new \DateTime());
      }
 }

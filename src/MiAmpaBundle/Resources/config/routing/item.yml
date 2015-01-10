@@ -3,8 +3,10 @@ item:
     defaults: { _controller: "MiAmpaBundle:Item:index" }
 
 item_show:
-    path:     /{id}/show
+    path:     /{id}
     defaults: { _controller: "MiAmpaBundle:Item:show" }
+    requirements:
+        id:  \d+
 
 item_new:
     path:     /new
